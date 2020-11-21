@@ -5,10 +5,10 @@ a = rd.randint(1, 100)
 b = rd.randint(1, 100)
 print('gcd(',a,',',b,')')
 print('Значение, полученное встроенным алгоритмом = ', math.gcd(a,b))
-while a != 0 and b != 0:
-    if a > b:
-        a = a % b
+def gcd(a,b):
+    if b == 0:
+        return a
     else:
-        b = b % a
+        return gcd(b, a % b)
 
-print('Значение, полученное написанным алгоритмом = ', a+b)
+print('Значение, полученное встроенным алгоритмом = ', gcd(a,b))
