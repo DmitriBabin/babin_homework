@@ -13,35 +13,16 @@ def vector_gauss(ab):
     ab = ab.copy()
     d = len(ab)
 
-    ab[0] = ab[0] / ab[0,0]
+    for x in range(d):
+        ab[x] = ab[x] / ab[x,x]
+        for i in range(x+1,d):
+            ab[i] = ab[i] - ab[x]*ab[i,x]
+    
 
-    for i in range(1,d):
-        ab[i] = ab[i] - ab[0]*ab[i,0]
-
-
-    ab[1] = ab[1] / ab[1,1]
-
-    for i in range(2,d):
-        ab[i] = ab[i] - ab[1]*ab[i,1]
-
-
-    ab[2] = ab[2] / ab[2,2]
-
-    for i in range(3,d):
-        ab[i] = ab[i] - ab[2]*ab[3,2]
-
-    ab[3] = ab[3] / ab[3,3]
-
-
-    for i in range(d-2, -1, -1):
-        ab[i] = ab[i] - ab[d-1]*ab[i,d-1]
-
-    for i in range(d-3, -1, -1):
-        ab[i] = ab[i] - ab[d-2]*ab[i,d-2]
-
-
-    for i in range(d-4, -1, -1):
-        ab[i] = ab[i] - ab[d-3]*ab[i,d-3]
+    for x in range(2, d+1):
+        for i in range(d-x, -1, -1):
+            ab[i] = ab[i] - ab[d-x+1]*ab[i,d-x+1]
+    print(ab)
 
 
     x = ab[:, -1]
