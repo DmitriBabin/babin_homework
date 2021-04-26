@@ -11,7 +11,15 @@
 пока числа не станут равными. Найденное число и есть наибольший общий делитель исходной пары.
 <a href="https://ru.wikipedia.org/wiki/%D0%90%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC_%D0%95%D0%B2%D0%BA%D0%BB%D0%B8%D0%B4%D0%B0">Для дополнительной информации</a>
 </p>
-<p style="text-align: center">Пример на случайных числах.</p>
+
+<form action="/euclid" method="POST"><p style="text-align: center">
+    <input type="number" name="a_num" value="1" />
+    <input type="number" name="b_num" value="1" />
+    <input type="submit" value="Ввести числа">
+</p>
+</form>
+
+<p style="text-align: center">Пример на числах.</p>
 <p style="text-align: center">gcd({{a}},{{b}}) = {{ans_1}}.</p>
 <p style="text-align: center">{{a}} * {{ans_2_1}} + {{b}} * {{ans_2_2}} = {{ans_1}}.</p>
 {% endblock %}
